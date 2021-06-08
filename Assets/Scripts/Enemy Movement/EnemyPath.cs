@@ -36,12 +36,19 @@ public class EnemyPath : MonoBehaviour
         {
             // Move the enemy from the current waypoint to the next
 
-            transform.position = Vector2.MoveTowards(transform.position,
+            transform.position = Vector3.MoveTowards(transform.position,
                                          waypoints[waypointIndex].transform.position,
                                          moveSpeed * Time.deltaTime);   
-            if (transform.position == waypoints[waypointIndex].transform.position)
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.TryGetComponent(out WayPointID waypointID))
+        {
+            if (waypointID.ID == waypointIndex)
             {
-                waypointIndex += 1;
+                waypointIndex++;
             }
         }
     }

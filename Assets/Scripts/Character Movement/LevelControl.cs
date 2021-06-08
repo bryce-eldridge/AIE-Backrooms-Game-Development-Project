@@ -19,5 +19,9 @@ public class LevelControl : MonoBehaviour
             SceneManager.LoadScene(levelName);
         }
 
+        IEnumerator Wait()
+        {
+            yield return new WaitForSeconds(2f);
+        }
     }
 }
