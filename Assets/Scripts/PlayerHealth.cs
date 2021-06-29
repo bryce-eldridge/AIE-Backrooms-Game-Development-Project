@@ -20,10 +20,11 @@ public class PlayerHealth : MonoBehaviour
             healthBar.value = _health;
 
 
-            //When the player dies, Load GameOver Scene
+            //When the player dies, Load MainMenu Scene
             if (_health <= 0)
             {
                 SceneManager.LoadScene(0);
+                Cursor.lockState = CursorLockMode.Confined;
             }
 
         }
@@ -71,4 +72,9 @@ public class PlayerHealth : MonoBehaviour
 
 
     }
+
+    
+
+
 }
+

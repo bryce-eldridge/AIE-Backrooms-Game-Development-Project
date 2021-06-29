@@ -14,7 +14,7 @@ public class LevelControl : MonoBehaviour
         {
             //Load next scene with the build index
             SceneManager.LoadScene(1);
-
+            Cursor.lockState = CursorLockMode.Confined;
             //Load next scene with the scene name
             SceneManager.LoadScene(levelName);
         }
@@ -23,5 +23,7 @@ public class LevelControl : MonoBehaviour
         {
             yield return new WaitForSeconds(2f);
         }
+
+       
     }
 }

@@ -61,11 +61,30 @@ public class CharacterMovement : MonoBehaviour
         
         float h = horizontalSpeed * Input.GetAxis ("Mouse X");  
         float v = verticalSpeed * Input.GetAxis("Mouse Y");
+
         
+
         transform.Rotate(0, h, 0);
         MainCamera.Rotate(v, 0, 0);
 
+        // Stop the camera from rotating in 360 degree on the x axies 
+
+        var currentRotation = MainCamera.eulerAngles;
+
+        var rotationX = currentRotation.x;
+
+        if (rotationX > 90f)
+        {
+            rotationX = 90f;
+        }
+        else if (rotationX < -90f)
+        {
+            rotationX = -90f;
+        }
+
         
+
+
 
         //When player presses shift key, accelerate their speed and drain their stamina 
         {
